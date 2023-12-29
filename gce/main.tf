@@ -16,6 +16,11 @@ resource "google_compute_instance" "gce" {
   network_interface {
     network    = "projects/${var.project_name}/global/networks/${var.vpc_name}"
     subnetwork = "projects/${var.project_name}/regions/${var.instance_region}/subnetworks/${var.instance_subnet}"
+
+    access_config {
+      // Ephemeral public IP
+    }
+
   }
 
   metadata_startup_script = "apt update -y && apt install ansible"
