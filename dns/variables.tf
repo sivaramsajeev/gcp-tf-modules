@@ -1,4 +1,4 @@
-variable dns_domain {
+variable domain_name {
     type = string 
 }
 

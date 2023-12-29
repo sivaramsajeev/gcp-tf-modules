@@ -49,7 +49,7 @@ variable "external_ip_enabled" {
     default = false 
 }
 
-
-variable "dns_domain_id" {
-  type = string 
+ 
+variable domain_name {
+    type = string 
 }
