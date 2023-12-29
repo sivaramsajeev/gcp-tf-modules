@@ -13,3 +13,7 @@ variable subnet_region {
 variable vpc_id {
     type = string 
 }
+
+variable "project_name" {
+  type = string 
+}
