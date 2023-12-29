@@ -48,3 +48,8 @@ variable "external_ip_enabled" {
     type = bool 
     default = false 
 }
+
+
+variable "dns_domain_id" {
+  type = string 
+}

@@ -26,5 +26,18 @@ resource "google_compute_instance" "gce" {
 
   }
 
-  metadata_startup_script = "apt update -y && apt install ansible"
+  metadata_startup_script = "apt update -y && apt upgrade -y"
+}
+
+
+resource "google_dns_record_set" "gce_dns" {
+  count = var.external_ip_enabled == true ? 1:0
+#   name = "frontend.${google_dns_managed_zone.prod.dns_name}"
+  name = var.instance_name
+  type = "A"
+  ttl  = 300
+
+  managed_zone = var.dns_domain_id
+
+  rrdatas = [ google_compute_instance.gce.network_interface[0].access_config[0].nat_ip ]
 }
