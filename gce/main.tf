@@ -14,11 +14,14 @@ resource "google_compute_instance" "gce" {
   }
 
   network_interface {
-    network    = "projects/${var.project_name}/global/networks/${var.vpc_name}"
-    subnetwork = "projects/${var.project_name}/regions/${var.instance_region}/subnetworks/${var.instance_subnet}"
+    network    = var.vpc_name
+    subnetwork = var.instance_subnet
 
-    access_config {
-      // Ephemeral public IP
+    dynamic "access_config" {
+        for_each = var.external_ip_enabled == true ? [1]: []
+        content {
+          
+        }
     }
 
   }

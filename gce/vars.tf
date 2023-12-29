@@ -44,4 +44,7 @@ variable "instance_subnet" {
   type = string
 }
 
-
+variable "external_ip_enabled" {
+    type = bool 
+    default = false 
+}
