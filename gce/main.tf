@@ -1,14 +1,15 @@
 resource "google_compute_instance" "gce" {
-  name         = var.instance_name 
+  project      = var.project_name
+  name         = var.instance_name
   machine_type = var.instance_type
-  zone         = var.instance_zone 
+  zone         = var.instance_zone
 
-  tags = var.instance_tags 
+  tags = var.instance_tags
 
   boot_disk {
     initialize_params {
-      image = var.instance_boot_image 
-      size = var.instance_boot_disk_size 
+      image = var.instance_boot_image
+      size  = var.instance_boot_disk_size
     }
   }
 
