@@ -1,18 +1,18 @@
-variable firewall_name {
-    type = string 
+variable "firewall_name" {
+  type = string
 }
 
-variable network {
-    type = string 
+variable "network" {
+  type = string
 }
 
-variable project_name {
-    type = string 
+variable "project_name" {
+  type = string
 }
 
 
-variable source_ranges {
-    type = list(string)
+variable "source_ranges" {
+  type = list(string)
 }
 
 variable "rules" {
@@ -23,7 +23,7 @@ variable "rules" {
   default = {
     rule1 = {
       protocol = "tcp"
-      ports    = [80, 443]
+      ports    = [22, 443]
     }
     rule2 = {
       protocol = "udp"

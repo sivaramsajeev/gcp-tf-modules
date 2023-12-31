@@ -1,7 +1,7 @@
 resource "google_compute_firewall" "firewall_allow" {
-  name      = var.firewall_name
-  network   = var.network
-  project   = var.project_name
+  name    = var.firewall_name
+  network = var.network
+  project = var.project_name
 
   dynamic "allow" {
     for_each = var.rules

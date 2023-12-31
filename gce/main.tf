@@ -18,10 +18,10 @@ resource "google_compute_instance" "gce" {
     subnetwork = var.instance_subnet
 
     dynamic "access_config" {
-        for_each = var.external_ip_enabled == true ? [1]: []
-        content {
-          
-        }
+      for_each = var.external_ip_enabled == true ? [1] : []
+      content {
+
+      }
     }
 
   }
@@ -31,12 +31,12 @@ resource "google_compute_instance" "gce" {
 
 
 resource "google_dns_record_set" "gce_dns" {
-  count = var.external_ip_enabled == true ? 1:0
+  count = var.external_ip_enabled == true ? 1 : 0
 
   project      = var.project_name
-  name = "${var.instance_name}.${var.domain_name}."
-  type = "A"
-  ttl  = 300
+  name         = "${var.instance_name}.${var.domain_name}."
+  type         = "A"
+  ttl          = 300
   managed_zone = replace(var.domain_name, ".", "-")
-  rrdatas = [ google_compute_instance.gce.network_interface[0].access_config[0].nat_ip ]
+  rrdatas      = [google_compute_instance.gce.network_interface[0].access_config[0].nat_ip]
 }

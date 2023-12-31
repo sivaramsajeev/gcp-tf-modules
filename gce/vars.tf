@@ -45,11 +45,11 @@ variable "instance_subnet" {
 }
 
 variable "external_ip_enabled" {
-    type = bool 
-    default = false 
+  type    = bool
+  default = false
 }
 
- 
-variable domain_name {
-    type = string 
+
+variable "domain_name" {
+  type = string
 }
