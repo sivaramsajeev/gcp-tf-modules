@@ -3,12 +3,12 @@ variable "bucket_name" {
 }
 
 
-variable "project" {
+variable "project_name" {
   type = string
 }
 
 
-variable "region" {
+variable "bucket_region" {
   type = string
 }
 
